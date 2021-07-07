@@ -50,6 +50,14 @@ class Form extends Component {
             return this.isKanji(ele) 
         })
         const numKanji = kanjiAry.length
+
+        // 漢字が含まれない場合の処理
+        if(numKanji < 1){
+            this.setState({result: '名前が作れないよ' })
+            console.log("漢字なし")
+            return;
+        }
+
         // どの要素を選ぶかはランダム
         const target = Math.floor(Math.random() * numKanji)
 
