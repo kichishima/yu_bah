@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import  Func  from './Func';
+
 
 // コンポーネントクラスは constructor() render()
 class Form extends Component {
@@ -19,6 +21,7 @@ class Form extends Component {
         this.setState({input:myName})
     }
 
+    // ”湯婆婆”処理の本体
     yu_bah_bah(){
         if(!this.isInput()){
             this.setState({result:'名無しさん！'})
@@ -47,7 +50,7 @@ class Form extends Component {
 
         // aryから漢字の要素だけを選び出す
         const kanjiAry = ary.filter(ele => {              
-            return this.isKanji(ele) 
+            return Func.isKanji(ele) 
         })
         const numKanji = kanjiAry.length
 
@@ -69,30 +72,6 @@ class Form extends Component {
         return str.split('')
     }
 
-    // 漢字か？（漢字として判別される文字はApp.jsのメモ参照）
-    isKanji(char){
-        const charCode = char.codePointAt(0)　// eleのUnicode(10進数)
-        // eleがUnicode5ケタの場合：char = "\ud87e"であっても、対応する10進数に変換して返す 
-        
-        let result = true
-        if(0x3005 <= charCode && charCode <= 0x3007){}
-        else if(0x3400 <= charCode && charCode <= 0x4DB5){}
-        else if(0xF900 <= charCode && charCode <= 0xFAFF){}
-        else if(0x4E00 <= charCode && charCode <= 0x9FFC){}
-        else if(0x20000 <= charCode && charCode <= 0x2A6DD){}
-        else if(0x2A700 <= charCode && charCode <= 0x2B734){}
-        else if(0x2B740 <= charCode && charCode <= 0x2B81D){}
-        else if(0x2B820 <= charCode && charCode <= 0x2CEA1){}
-        else if(0x2CEB0 <= charCode && charCode <= 0x2EBE0){}
-        else if(0x2F800 <= charCode && charCode <= 0x2FA1F){}
-        else if(0x30000 <= charCode && charCode <= 0x3134A){}
-        else {
-            // 漢字のUnicodeに合致しない場合は、false
-            result = false
-        }
-        return result
-    }
-
     render(){
         return <div>
             <label htmlFor="name">your name</label>
@@ -104,6 +83,8 @@ class Form extends Component {
 
             <p>input: {this.state.input}</p>
             <p>result: {this.state.result}</p>
+
+
         </div>  
     }   
 }
