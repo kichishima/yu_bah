@@ -1,12 +1,10 @@
 import './App.css';
 import Form from './component/Form'
-// import BtnSubmit from './component/BtnSubmit'
 
 function App() {
   return (
     <div className="App">
       <Form />
-      {/* <BtnSubmit /> */}
     </div>
   );
 }

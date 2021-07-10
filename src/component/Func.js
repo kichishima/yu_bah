@@ -1,6 +1,5 @@
 // グローバル関数
 
-
 const Func = {
     // 漢字か？（漢字として判別される文字はApp.jsのメモ参照）
     isKanji : (char) => {
