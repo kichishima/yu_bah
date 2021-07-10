@@ -14,6 +14,7 @@ class Form extends Component {
         this.updateInput = this.updateInput.bind(this)
         this.yu_bah_bah = this.yu_bah_bah.bind(this)
         this.isInput = this.isInput.bind(this)
+        this.selectOne = this.selectOne.bind(this)
     }
 
     updateInput(e){
@@ -27,7 +28,7 @@ class Form extends Component {
             this.setState({result:'名無しさん！'})
             return;            
         }
-        const yourName = this.selectOne()
+        const yourName = this.selectOne()       
         this.setState({result: yourName })
         this.render()
     }
@@ -49,18 +50,13 @@ class Form extends Component {
         //        4ケタの場合：実際の文字（ex. "山"）
 
         // aryから漢字の要素だけを選び出す
-        const kanjiAry = ary.filter(ele => {              
-            return Func.isKanji(ele) 
-        })
+        const kanjiAry = ary.filter(ele => Func.isKanji(ele))
         const numKanji = kanjiAry.length
-
+        
         // 漢字が含まれない場合の処理
         if(numKanji < 1){
-            this.setState({result: '名前が作れないよ' })
-            console.log("漢字なし")
-            return;
+            return "「名前が作れない！」";
         }
-
         // どの要素を選ぶかはランダム
         const target = Math.floor(Math.random() * numKanji)
 
@@ -83,8 +79,6 @@ class Form extends Component {
 
             <p>input: {this.state.input}</p>
             <p>result: {this.state.result}</p>
-
-
         </div>  
     }   
 }
