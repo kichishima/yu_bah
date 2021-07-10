@@ -1,3 +1,10 @@
+# Version Info.
+- React.js  17.0.2  
+- Node.js  14.17.2
+- npm  6.14.13  
+- material-ui/core@4.12.1  
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -70,6 +77,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-### Version
-npm  
-material-ui/core@4.12.1  
+
