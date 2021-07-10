@@ -70,7 +70,7 @@ class Form extends Component {
 
     render(){
         return <div>
-            <label htmlFor="name">your name</label>
+            <label htmlFor="name" className="text-danger">your name</label>
             <br />
 
             <input type="text" name="name" id="myName" onChange={this.updateInput} />
